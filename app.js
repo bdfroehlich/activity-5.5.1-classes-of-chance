@@ -1,5 +1,20 @@
 class Casino {
-    // Write code here
+    constructor(name){
+        // even though name is passed as an input in the constructor it should still be a field of the constructor
+        this.name = name;
+        this.timesPlayed = 0;
+    }
+    playGame(betAmount) {
+        if (Math.random() <= 0.5) {
+            console.log(this.name + " wins!");
+            // need to reset this.timesPlayed back to zero if the casino wins otherwise +1 in the else statement
+            this.timesPlayed = 0;
+        } else {
+            console.log("You won " + betAmount * (this.timesPlayed + 1) + " dollars from " + this.name + "!");
+            // increment this.timesPlayed + 1 after logging what the player has won to end the else statement
+            this.timesPlayed += 1;
+        }
+    }
 };
 
 // TESTS
